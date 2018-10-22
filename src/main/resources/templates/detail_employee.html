@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/head">
+</head>
+<body>
+<div th:include="common/nav"></div>
+
+<div class="row container">
+    <form class="col s12" method="post" th:action="@{/employee}" th:object="${employee}">
+        <!--/*@thymesVar id="employee" type="cn.pppobear.demo.backend.domain.Employee"*/-->
+        <div th:if="${employee.id}>0" class="row">
+            <div class="input-field col s12">
+                <input readonly th:field="*{id}" id="id" name="id" type="text" class="validate">
+                <label for="id">员工编号</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="姓名" id="name" name="name" type="text" class="validate" th:field="*{name}">
+                <label for="name">姓名</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="密码" id="password" th:field="*{password}" name="password" type="password" class="validate">
+                <label for="password">密码</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" name="email" class="validate" th:field="*{email}">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="age" name="age" type="number" class="validate" th:field="*{age}">
+                <label for="age">年龄</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-s9 s2">
+                <button class="btn-large waves-effect waves-light" type="submit" name="action">
+                    <i class="material-icons" th:if="${employee.id}>0">修改</i>
+                    <i class="material-icons" th:if="${employee.id}<=0">创建</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer th:include="common/foot"></footer>
+</body>
+</html>

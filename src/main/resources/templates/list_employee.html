@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/head">
+</head>
+<body>
+<div th:include="common/nav"></div>
+
+
+<div class="row">
+    <div class="container">
+        <table class="striped">
+            <thead id="t-head">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>电子邮件</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.age}"></td>
+                <td>
+                    <a th:href="@{/employee/{id}(id=${employee.id})}">编辑</a>
+                    |
+                    <a th:href="@{/employee/delete/{id}(id=${employee.id})}">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col s3 offset-s6">
+                <h4>添加员工: </h4>
+            </div>
+            <a id="scale-demo" th:href="@{/employee/create}" class="waves-effect waves-light btn-floating btn-large scale-transition">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer th:include="common/foot"></footer>
+
+</body>
+</html>

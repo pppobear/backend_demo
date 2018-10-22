@@ -1,0 +1,31 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo ">后台管理系统</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a th:href="@{/employee}">首页</a></li>
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">用户
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">个人中心</a></li>
+                        <li><a href="#!">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="top-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1">
+                        <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+                        <h1 class="navbar-text" th:text="${title}"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
